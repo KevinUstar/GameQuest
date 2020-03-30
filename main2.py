@@ -11,7 +11,6 @@
 # import modules and files
 import pygame as pg
 from pygame.sprite import Group
-# from pg.sprite import Group
 import random
 from settings import *
 from sprites import *
@@ -33,8 +32,8 @@ class Game:
         self.player = Player(self)
         self.all_sprites.add(self.player)
         ground = Platform(0, HEIGHT-40, WIDTH, 40)
-        plat1 = Platform(200, 400, 150, 20)
-        plat2 = Platform(100, 200, 150, 20)
+        plat1 = Platform(x, y, w, h)
+        plat2 = Platform(x, y, w, h)
         self.all_sprites.add(ground)
         self.platforms.add(ground)
         self.all_sprites.add(plat1)
@@ -55,12 +54,14 @@ class Game:
     def update(self):
         # Game Loop - Update
         self.all_sprites.update()
+        self.platforms.update
         hits = pg.sprite.spritecollide(self.player, self.platforms, False)
         if hits:
             # print("it collided")
             self.player.vel.y = 0
             self.player.pos.y = hits[0].rect.top+1
-            
+            self.player.hitpoints -= 10
+            print(self.player.hitpoints)
 
     def events(self):
         # Game Loop - events

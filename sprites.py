@@ -4,6 +4,8 @@
 import pygame as pg
 from pygame.sprite import Sprite
 from settings import *
+import random
+import time
 vec = pg.math.Vector2
 
 class Player(Sprite):
@@ -19,8 +21,6 @@ class Player(Sprite):
         self.vel = vec(0, 0)
         self.acc = vec(0, 0)
         self.hitpoints = 100
-    def myMethod(self):
-        pass
     def jump(self):
         self.rect.x += 1
         hits = pg.sprite.spritecollide(self, self.game.platforms, False)
@@ -34,11 +34,6 @@ class Player(Sprite):
             self.acc.x = -PLAYER_ACC
         if keys[pg.K_d]:
             self.acc.x = PLAYER_ACC
-        if keys[pg.K_w]:
-            self.acc.y = -PLAYER_ACC
-        if keys[pg.K_s]:
-            self.acc.y = PLAYER_ACC
-        # ALERT - Mr. Cozort did this WAY differently than Mr. Bradfield...
         if keys[pg.K_SPACE]:
             self.jump()
 
@@ -67,3 +62,12 @@ class Platform(Sprite):
         self.rect = self.image.get_rect()
         self.rect.x = x
         self.rect.y = y
+    def update(self):
+        # will change its position and size randomly
+        while Level_var < 100:
+            x = random.randint(0,500)
+            y = random.randint(0,700)
+            w = random.randint(50,400)
+            h = random.randint(10,100)
+            Level_var += 1
+            time.sleep(3)
