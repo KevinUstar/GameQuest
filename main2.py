@@ -50,13 +50,19 @@ class Game:
         self.all_sprites.add(self.player)
         ground = Platform(0, HEIGHT-40, WIDTH, 40)
         plat1 = Platform(200, 400, 150, 20)
+        plat2 = Platform(100, 600, 150, 20)
         self.all_sprites.add(ground)
         self.platforms.add(ground)
         self.all_sprites.add(plat1)
         self.platforms.add(plat1)
         self.all_sprites.add(plat2)
         self.platforms.add(plat2)
+        for plat in range (1,10):
+            plat = Platform(random.ranint(0,WIDTH),random.ranint(0,Height),random.ranint(0,300),random.ranint(0,300))
+            self.all_sprites.add(plat)
+            self.platforms.add(plat)
         self.run()
+
 
 
 
