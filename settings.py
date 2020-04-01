@@ -24,12 +24,6 @@ RED = (255, 0, 0)
 GREEN = (0, 255, 0)
 BLUE = (0, 0, 255)
 YELLOW = (255, 255, 0)
-
-# inital platform positions
-x=100
-y=100
-w=100
-h=100
  
 # level number
 Level_var = 1

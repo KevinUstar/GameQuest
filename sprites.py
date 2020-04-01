@@ -6,7 +6,10 @@ from pygame.sprite import Sprite
 from settings import *
 import random
 import time
+
 vec = pg.math.Vector2
+
+# global varibles
 
 class Player(Sprite):
     # include game parameter to pass game class as argument in main...
@@ -20,7 +23,7 @@ class Player(Sprite):
         self.pos = vec(WIDTH / 2, HEIGHT / 2)
         self.vel = vec(0, 0)
         self.acc = vec(0, 0)
-        self.hitpoints = 100
+        self.hitpoints = 10000
     def jump(self):
         self.rect.x += 1
         hits = pg.sprite.spritecollide(self, self.game.platforms, False)
@@ -58,16 +61,13 @@ class Platform(Sprite):
     def __init__(self, x, y, w, h):
         Sprite.__init__(self)
         self.image = pg.Surface((w, h))
-        self.image.fill(GREEN)
+        self.image.fill(RED)
         self.rect = self.image.get_rect()
         self.rect.x = x
         self.rect.y = y
     def update(self):
         # will change its position and size randomly
-        while Level_var < 100:
-            x = random.randint(0,500)
-            y = random.randint(0,700)
-            w = random.randint(50,400)
-            h = random.randint(10,100)
-            Level_var += 1
-            time.sleep(3)
+        self.x = random.randint(0,WIDTH)
+        self.y = random.randint(0,HEIGHT)
+        self.w = random.randint(50,400)
+        self.h = random.randint(10,100)
