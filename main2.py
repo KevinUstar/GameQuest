@@ -34,8 +34,8 @@ class Game:
         ground = Platform(0, HEIGHT-40, WIDTH, 40)
         plat1 = Platform(100, 200, 100, 50)
         plat2 = Platform(200, 400, 200, 50)
-        # self.all_sprites.add(ground)
-        self.platforms.add(ground)
+        self.all_sprites.add(ground)
+        # self.platforms.add(ground)
         # self.all_sprites.add(plat1)
         self.platforms.add(plat1)
         # a
@@ -57,6 +57,7 @@ class Game:
         hits = pg.sprite.spritecollide(self.player, self.platforms, False)
         if hits:
             # print("it collided")
+            # if collide with platform, change platform location
             self.player.vel.y = 0
             self.player.pos.y = hits[0].rect.top+1
             self.platforms.update
