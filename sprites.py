@@ -65,6 +65,10 @@ class Platform(Sprite):
         self.rect = self.image.get_rect()
         self.rect.x = x
         self.rect.y = y
+        self.x = x
+        self.y = y
+        self.w = w
+        self.h = h
     def update(self):
         # will change its position and size randomly
         self.x = random.randint(0,WIDTH)
