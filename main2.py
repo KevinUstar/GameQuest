@@ -36,7 +36,7 @@ class Game:
         plat1 = Platform(100, 200, 100, 50)
         plat2 = Platform(200, 400, 200, 50)
         # add healthbar above player
-        hpbar = Healthbar(self, self.player.rect.center + 50, self.player.rect.center, self.player.hitpoints/100, 30)
+        hpbar = Healthbar(self, 15, 15, self.player.hitpoints/100, 30)
         self.all_sprites.add(ground)
         # self.platforms.add(ground)
         # self.all_sprites.add(plat1)
@@ -59,7 +59,7 @@ class Game:
         # Game Loop - Update
         self.all_sprites.update()
         hits = pg.sprite.spritecollide(self.player, self.platforms, False)
-        # if player touches platform, the hp bar decreases
+        # if player touches platform, the hp bar decreases- point of game to not touch ground
         if hits:
             # print("it collided")
             # if collide with platform, change platform location

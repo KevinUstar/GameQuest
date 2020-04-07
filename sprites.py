@@ -69,13 +69,16 @@ class Platform(Sprite):
         self.y = y
         self.w = w
         self.h = h
-    def update(self):
         # will change its position and size randomly
+    def random(self):
         self.x = random.randint(0,WIDTH)
         self.y = random.randint(0,HEIGHT)
         self.w = random.randint(50,400)
         self.h = random.randint(10,100)
-# hp bar sprite
+        time.sleep(3)
+    def update(self):
+        self.random()
+# hp bar spritos(e
 class Healthbar(Sprite):
     def __init__(self, game, x, y, w, h):
         Sprite.__init__(self)
