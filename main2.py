@@ -26,18 +26,22 @@ class Game:
         self.running = True
 
     def new(self):
-        # start a new game
+        # start a new game and creat platforms
         self.all_sprites = Group()
         self.platforms = Group()
+        self.hp = Group()
         self.player = Player(self)
         self.all_sprites.add(self.player)
         ground = Platform(0, HEIGHT-40, WIDTH, 40)
         plat1 = Platform(100, 200, 100, 50)
         plat2 = Platform(200, 400, 200, 50)
+        # add healthbar above player
+        hpbar = Healthbar(self, self.player.rect.center + 50, self.player.rect.center, self.player.hitpoints/100, 30)
         self.all_sprites.add(ground)
         # self.platforms.add(ground)
         # self.all_sprites.add(plat1)
         self.platforms.add(plat1)
+        self.hp.add(hpbar)
         # self.all_sprites.add(plat2)
         self.platforms.add(plat2)
         self.run()
@@ -55,6 +59,7 @@ class Game:
         # Game Loop - Update
         self.all_sprites.update()
         hits = pg.sprite.spritecollide(self.player, self.platforms, False)
+        # if player touches platform, the hp bar decreases
         if hits:
             # print("it collided")
             # if collide with platform, change platform location
@@ -78,6 +83,7 @@ class Game:
         self.screen.fill(BLACK)
         self.all_sprites.draw(self.screen)
         self.platforms.draw(self.screen)
+        self.hp.draw(self.screen)
         # *after* drawing everything, flip the display
         pg.display.flip()
 

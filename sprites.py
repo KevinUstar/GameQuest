@@ -23,7 +23,7 @@ class Player(Sprite):
         self.pos = vec(WIDTH / 2, HEIGHT / 2)
         self.vel = vec(0, 0)
         self.acc = vec(0, 0)
-        self.hitpoints = 10000
+        self.hitpoints = HP
     def jump(self):
         self.rect.x += 1
         hits = pg.sprite.spritecollide(self, self.game.platforms, False)
@@ -75,3 +75,12 @@ class Platform(Sprite):
         self.y = random.randint(0,HEIGHT)
         self.w = random.randint(50,400)
         self.h = random.randint(10,100)
+# hp bar sprite
+class Healthbar(Sprite):
+    def __init__(self, game, x, y, w, h):
+        Sprite.__init__(self)
+        self.image = pg.Surface((w, h))
+        self.image.fill(RED)
+        self.rect = self.image.get_rect()
+        self.rect.x = x
+        self.rect.y = y
