@@ -76,7 +76,7 @@ class Platform(Sprite):
         self.y = random.randint(0,HEIGHT)
         self.w = random.randint(50,400)
         self.h = random.randint(10,100)
-        time.sleep(3)
+        # time.sleep(3)
     #runs random funciton for update
     def update(self):
         self.random()

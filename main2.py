@@ -36,8 +36,8 @@ class Game:
         plat1 = Platform(100, 200, 100, 50)
         plat2 = Platform(200, 400, 200, 50)
         # add healthbar above player
-        hpbar = Healthbar(self, 15, 15                                                                   , self.player.hitpoints/100, 30)
-        self.all_sprites.add(ground)
+        hpbar = Healthbar(self, 15, 15, self.player.hitpoints/100, 30)
+        self.platforms.add(ground)
         # self.platforms.add(ground)
         # self.all_sprites.add(plat1)
         self.platforms.add(plat1)
