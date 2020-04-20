@@ -15,6 +15,7 @@ GRAVITY = 9.8
 PLAYER_ACC = 0.5
 PLAYER_FRICTION = -0.01
 PLAYER_JUMPPOWER = 10
+# hp of player
 HP = 100000
 
 # define colors

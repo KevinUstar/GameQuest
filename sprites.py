@@ -23,6 +23,7 @@ class Player(Sprite):
         self.pos = vec(WIDTH / 2, HEIGHT / 2)
         self.vel = vec(0, 0)
         self.acc = vec(0, 0)
+        #hp from settings
         self.hitpoints = HP
     def jump(self):
         self.rect.x += 1
@@ -76,9 +77,10 @@ class Platform(Sprite):
         self.w = random.randint(50,400)
         self.h = random.randint(10,100)
         time.sleep(3)
+    #runs random funciton for update
     def update(self):
         self.random()
-# hp bar spritos(e
+# hp bar sprites that updates its legnth.
 class Healthbar(Sprite):
     def __init__(self, game, x, y, w, h):
         Sprite.__init__(self)
